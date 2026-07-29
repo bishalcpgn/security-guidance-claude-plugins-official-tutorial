@@ -1,0 +1,26 @@
+{
+  "patterns": [
+    {
+      "rule_name": "hardcoded_credential_prefix",
+      "substrings": ["sk_live_", "AKIA"],
+      "reminder": "Hardcoded credential prefix. Load this from the secret manager, not from source."
+    },
+    {
+      "rule_name": "tenant_unfiltered_query",
+      "regex": "\\.objects\\.all\\(\\)",
+      "paths": ["**/app/**"],
+      "reminder": "Tenant-scoped tables must filter by org_id."
+    },
+    {
+      "rule_name": "sql_string_interpolation",
+      "regex": "(execute|executemany)\\s*\\(\\s*f[\"']",
+      "paths": ["**/app/**"],
+      "reminder": "f-string interpolated into SQL. Use parameter binding: cursor.execute(sql, params)."
+    },
+    {
+      "rule_name": "verify_disabled",
+      "substrings": ["verify=False", "rejectUnauthorized: false"],
+      "reminder": "TLS verification disabled. Remove this."
+    }
+  ]
+}

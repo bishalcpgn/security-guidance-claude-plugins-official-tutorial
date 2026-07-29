@@ -1,3 +1,5 @@
+"""Protected file. The PreToolUse hook refuses all edits here."""
+ 
 import hmac
  
  

@@ -1,3 +1,5 @@
+"""Tiny fake data layer for the demo."""
+ 
 import sqlite3
  
  
